@@ -93,11 +93,11 @@ $ python obfuscatedclassification.py --data_dir=[directory of the testing data] 
 
 ## Results
 **Training Data**
-`Prediction accuracy: 0.990`
-`Weighted Precision: 0.99`
-`Weighted Recall: 0.99`
-`Weighted f1-score: 0.99`
-`Loss: 0.09308`
+`Prediction accuracy: 0.990`  
+`Weighted Precision: 0.99`  
+`Weighted Recall: 0.99`  
+`Weighted f1-score: 0.99`  
+`Loss: 0.09308`  
 
 |               | precision |   recall | f1-score |support|
 |---------------|-----------|----------|----------|-------|                
@@ -119,11 +119,11 @@ $ python obfuscatedclassification.py --data_dir=[directory of the testing data] 
 
 
 **Validation Data**
-`Prediction accuracy: 0.859`
-`Weighted Precision: 0.86`
-`Weighted Recall: 0.85`
-`Weighted f1-score: 0.85`
-`Loss: 0.43943`
+`Prediction accuracy: 0.859`  
+`Weighted Precision: 0.86`  
+`Weighted Recall: 0.85`  
+`Weighted f1-score: 0.85`  
+`Loss: 0.43943`  
 
 |              | precision | recall | f1-score | support |
 |--------------|-----------|--------|----------|---------|
