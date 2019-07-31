@@ -61,11 +61,11 @@ Should the validation loss exceeds that of previous epoch for more than 5 times,
 
 ## Getting Started
 ### Python3 Library Prerequisites
-`json==2.0.9`
-`numpy==1.16.4`
-`keras==2.2.4`
-`tensorflow==1.13.1`
-`sklearn==0.21.2`
+`json==2.0.9`  
+`numpy==1.16.4`  
+`keras==2.2.4`  
+`tensorflow==1.13.1`  
+`sklearn==0.21.2`  
 
 ## Running the tests
 
@@ -92,7 +92,7 @@ $ python obfuscatedclassification.py --data_dir=[directory of the testing data] 
 ```
 
 ## Results
-**Training Data**
+**Training Data**  
 `Prediction accuracy: 0.990`  
 `Weighted Precision: 0.99`  
 `Weighted Recall: 0.99`  
@@ -118,7 +118,7 @@ $ python obfuscatedclassification.py --data_dir=[directory of the testing data] 
 |weighted avg   |    0.99   |   0.99   |   0.99   | 26617 |
 
 
-**Validation Data**
+**Validation Data**  
 `Prediction accuracy: 0.859`  
 `Weighted Precision: 0.86`  
 `Weighted Recall: 0.85`  
