@@ -1,3 +1,4 @@
+
 # obfuscated-multiclassification
 The task requires training a deep learning model that classifies a given line of text as belonging to one of the following 12 novels:
 
@@ -34,7 +35,7 @@ The embedding layer is initialized with an embedding weight of dimension (27,26)
 Fewer convolutional layers have been experimented but it turns out 8 layers perform the best in terms of prediction accuracy. More convolutional layers do not necessary outperform 8 layers and hence 8 layers are used in consideration of model parsimony. 
 
 ### Maxpooling Layer
-The activation maps obtained from each convolution layer are maxpooled and concatenated into a single vector respectively, which further extract useful information in the "**ngrams**" of different sizes for author prediction. Hence there are eight 64-dimensional vectors after maxpooling.
+The activation maps obtained from each convolution layer are maxpooled and concatenated into a single vector respectively, which further extract useful information in the "**ngrams**" of different sizes for Novel prediction. Hence there are eight 64-dimensional vectors after maxpooling.
 
 Average pooling have been taken into consideration as well (keeping other hyperparameters constant), yet it underperforms Maxpooling significantly. It might have diluted the salient features for prediction from each activation maps.
 
@@ -70,24 +71,24 @@ Should the validation loss exceeds that of previous epoch for more than 5 times,
 
 Model Training
 ```sh
-$ python AuthorIdentification.py --data_dir=[directory of the training data] \
-                                 --output_dir=[directory to save model/prediction] \
-                                 --model_name=[Name of the model] \
-                                 --do_train=True
+$ python obfuscatedclassification.py --data_dir=[directory of the training data] \
+                                     --output_dir=[directory to save model/prediction] \
+                                     --model_name=[Name of the model] \
+                                     --do_train=True
 ```
 Model Evaluation
 ```sh
-$ python AuthorIdentification.py --data_dir=[directory of the data] \
-                                 --output_dir=[directory to save model/prediction] \
-                                 --model_name=[Name of the model] \
-                                 --do_eval=True
+$ python obfuscatedclassification.py --data_dir=[directory of the data] \
+                                     --output_dir=[directory to save model/prediction] \
+                                     --model_name=[Name of the model] \
+                                     --do_eval=True
 ```
 Running the model on testing dataset
 ```sh
-$ python AuthorIdentification.py --data_dir=[directory of the testing data] \
-                                 --output_dir=[directory to save model/prediction] \
-                                 --model_name=[Name of the model] \
-                                 --do_predict=True
+$ python obfuscatedclassification.py --data_dir=[directory of the testing data] \
+                                     --output_dir=[directory to save model/prediction] \
+                                     --model_name=[Name of the model] \
+                                     --do_predict=True
 ```
 
 ## Results
@@ -100,18 +101,18 @@ $ python AuthorIdentification.py --data_dir=[directory of the testing data] \
 
 |               | precision |   recall | f1-score |support|
 |---------------|-----------|----------|----------|-------|                
-|    Author 0   |    1.00   |   1.00   |   1.00   |  445  |
-|    Author 1   |    0.99   |   1.00   |   0.99   | 2873  |
-|    Author 2   |    0.99   |   0.99   |   0.99   | 1210  |
-|    Author 3   |    0.99   |   0.98   |   0.99   | 3288  |
-|    Author 4   |    0.99   |   0.98   |   0.99   | 1905  |
-|    Author 5   |    1.00   |   0.99   |   0.99   | 1876  |
-|    Author 6   |    0.99   |   1.00   |   0.99   | 3416  |
-|    Author 7   |    1.00   |   1.00   |   1.00   | 4174  |
-|    Author 8   |    0.99   |   0.99   |   0.99   | 2985  |
-|    Author 9   |    0.99   |   0.96   |   0.98   |  805  |
-|    Author10   |    0.98   |   0.98   |   0.98   | 2482  |
-|    Author11   |    0.96   |   0.99   |   0.98   | 1158  |
+|    Novel 0    |    1.00   |   1.00   |   1.00   |  445  |
+|    Novel 1    |    0.99   |   1.00   |   0.99   | 2873  |
+|    Novel 2    |    0.99   |   0.99   |   0.99   | 1210  |
+|    Novel 3    |    0.99   |   0.98   |   0.99   | 3288  |
+|    Novel 4    |    0.99   |   0.98   |   0.99   | 1905  |
+|    Novel 5    |    1.00   |   0.99   |   0.99   | 1876  |
+|    Novel 6    |    0.99   |   1.00   |   0.99   | 3416  |
+|    Novel 7    |    1.00   |   1.00   |   1.00   | 4174  |
+|    Novel 8    |    0.99   |   0.99   |   0.99   | 2985  |
+|    Novel 9    |    0.99   |   0.96   |   0.98   |  805  |
+|    Novel10    |    0.98   |   0.98   |   0.98   | 2482  |
+|    Novel11    |    0.96   |   0.99   |   0.98   | 1158  |
 |    accuracy   |           |          |   0.99   | 26617 |
 |   macro avg   |    0.99   |   0.99   |   0.99   | 26617 |
 |weighted avg   |    0.99   |   0.99   |   0.99   | 26617 |
@@ -123,20 +124,21 @@ $ python AuthorIdentification.py --data_dir=[directory of the testing data] \
 `Weighted Recall: 0.85`
 `Weighted f1-score: 0.85`
 `Loss: 0.43943`
+
 |              | precision | recall | f1-score | support |
 |--------------|-----------|--------|----------|---------|
-| Author 0     | 0.86      | 0.86   | 0.86     | 112     |
-| Author 1     | 0.84      | 0.86   | 0.85     | 641     |
-| Author 2     | 0.85      | 0.76   | 0.80     | 291     |
-| Author 3     | 0.82      | 0.82   | 0.82     | 807     |
-| Author 4     | 0.91      | 0.87   | 0.89     | 483     |
-| Author 5     | 0.98      | 0.90   | 0.94     | 445     |
-| Author 6     | 0.86      | 0.88   | 0.87     | 895     |
-| Author 7     | 0.88      | 0.92   | 0.90     | 1013    |
-| Author 8     | 0.92      | 0.88   | 0.90     | 726     |
-| Author 9     | 0.89      | 0.84   | 0.86     | 189     |
-| Author 10    | 0.76      | 0.77   | 0.77     | 623     |
-| Author 11    | 0.73      | 0.85   | 0.79     | 277     |
+| Novel 0      | 0.86      | 0.86   | 0.86     | 112     |
+| Novel 1      | 0.84      | 0.86   | 0.85     | 641     |
+| Novel 2      | 0.85      | 0.76   | 0.80     | 291     |
+| Novel 3      | 0.82      | 0.82   | 0.82     | 807     |
+| Novel 4      | 0.91      | 0.87   | 0.89     | 483     |
+| Novel 5      | 0.98      | 0.90   | 0.94     | 445     |
+| Novel 6      | 0.86      | 0.88   | 0.87     | 895     |
+| Novel 7      | 0.88      | 0.92   | 0.90     | 1013    |
+| Novel 8      | 0.92      | 0.88   | 0.90     | 726     |
+| Novel 9      | 0.89      | 0.84   | 0.86     | 189     |
+| Novel 10     | 0.76      | 0.77   | 0.77     | 623     |
+| Novel 11     | 0.73      | 0.85   | 0.79     | 277     |
 | accuracy     |           |        | 0.86     | 6502    |
 | macro avg    | 0.86      | 0.85   | 0.85     | 6502    |
 | weighted avg | 0.86      | 0.86   | 0.86     | 6502    |
