@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Cheung Hiu Fan, Sam
+@author: Sam Cheung
 
 Python programme to train, evaluate and predict Author based on obfuscated text using a character CNN model.
 """
